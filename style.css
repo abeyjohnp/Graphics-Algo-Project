@@ -1,0 +1,28 @@
+body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #f0f0f0;
+}
+
+canvas{
+    background-color: white;
+    border: 2px solid #333;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,2);
+}
+
+.controls{
+    margin: 20px;
+}
+
+input {
+    width:60px;
+    padding:5px;
+}
+
+button{
+    padding:5px 15px;
+    cursor:pointer;
+}
