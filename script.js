@@ -28,10 +28,41 @@ drawBtn.addEventListener('click', () => {
     const y1 = Number(document.getElementById('y1').value);
     const x2 = Number(document.getElementById('x2').value);
     const y2 = Number(document.getElementById('y2').value);
+    const algo = document.getElementById('algoSelect').value;
 
-
-    //try to draw a line
-    for (let i = x1; i <= x2; i++) {
-        drawPixel(i, y1, "red");
+    if (algo === "dda")
+    {
+        runDDA(x1, y1, x2, y2);
     }
 });
+
+function runDDA(x1,y1,x2,y2)
+{
+    let dx=x2-x1;
+    let dy=y2-y1;
+    let m=dy/dx;
+    if (Math.abs(dx)>=Math.abs(dy))
+    {
+        //this should be m<=1 case as delta x is greater
+        let x=x1, y=y1;
+        let step=(x1<x2)? 1:-1
+        while (x!==x2)
+        {
+            drawPixel(x,y,"blue");
+            x+=step;
+            y+=step*m
+        }
+    }
+    else 
+    {
+        // Case: |m| > 1
+        let x = x1, y = y1;
+        let step = (y1 < y2) ? 1 : -1;
+        while (y !== y2) 
+        {
+            drawPixel(x, y, "blue");
+            x += step * (1/m);
+            y += step;
+        }
+    }
+}
