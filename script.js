@@ -11,8 +11,11 @@ const clearBtn = document.getElementById('clearBtn');
 
 function drawPixel(x,y,color="black")
 {
+    const canvasHeight=500;
+    let screenX=x;
+    let screenY=canvasHeight-y;
     ctx.fillStyle = color;
-    ctx.fillRect(Math.round(x),Math.round(y),5,5) //1,1 sets width and height of rect to 1 unit
+    ctx.fillRect(Math.round(screenX),Math.round(screenY),5,5) //1,1 sets width and height of rect to 1 unit
 }
 
 clearBtn.addEventListener('click',()=>{
