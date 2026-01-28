@@ -34,6 +34,11 @@ drawBtn.addEventListener('click', () => {
     {
         runDDA(x1, y1, x2, y2);
     }
+
+    if (algo === "bresenhamLine")
+    {
+        runBLA(x1,y1,x2,y2);
+    }
 });
 
 function runDDA(x1,y1,x2,y2)
@@ -65,4 +70,15 @@ function runDDA(x1,y1,x2,y2)
             y += step;
         }
     }
+}
+
+function BLA(x1,y1,x2,y2)
+{
+    let dx=x2-x1;
+    let dy=y2-y1;
+    let p0=(2*dx)-dy;
+    let x=x1,y=y1;
+    
+    drawPixel(x,y,"blue");
+    
 }
