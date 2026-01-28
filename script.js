@@ -72,29 +72,32 @@ function runDDA(x1,y1,x2,y2)
     }
 }
 
-function BLA(x1,y1,x2,y2)
+function runBLA(x1,y1,x2,y2)
 {
-    let dx=x2-x1;
-    let dy=y2-y1;
+    let dx=Math.abs(x2-x1);
+    let dy=Math.abs(y2-y1);
+    let sx = (x1 < x2) ? 1 : -1;
+    let sy = (y1 < y2) ? 1 : -1;
     let p0=(2*dx)-dy;
     let x=x1,y=y1;
     let pk=p0
     
-
-    while (x!==x2)
+    steps=0
+    while (steps<=dx)
     {
         drawPixel(x,y,"blue");
         if ((pk)>=0)
         {
             pk=pk+(2*dy)-(2*dx);
-            x+=1
-            y+=1
+            x+=sx
+            y+=sy
         }
         else
         {
-            pk=pk+(2*dx);
-            x+=1
+            pk=pk+(2*dy);
+            x+=sx
         }
+        steps+=1
     }
     
 }
