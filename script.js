@@ -78,7 +78,23 @@ function BLA(x1,y1,x2,y2)
     let dy=y2-y1;
     let p0=(2*dx)-dy;
     let x=x1,y=y1;
+    let pk=p0
     
-    drawPixel(x,y,"blue");
+
+    while (x!==x2)
+    {
+        drawPixel(x,y,"blue");
+        if ((pk)>=0)
+        {
+            pk=pk+(2*dy)-(2*dx);
+            x+=1
+            y+=1
+        }
+        else
+        {
+            pk=pk+(2*dx);
+            x+=1
+        }
+    }
     
 }
